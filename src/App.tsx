@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
@@ -11,7 +10,6 @@ import Contact from './pages/Contact';
 import './App.css';
 
 function App() {
-  const [isBlocked, setIsBlocked] = useState(false);
 
 
 
@@ -19,7 +17,6 @@ function App() {
     <LanguageProvider>
       <Router>
         <div className="App">
-          {!isBlocked && (
             <>
               <Header />
               <main className="main-content">
@@ -33,7 +30,6 @@ function App() {
               </main>
               <Footer />
             </>
-          )}
         </div>
       </Router>
     </LanguageProvider>
