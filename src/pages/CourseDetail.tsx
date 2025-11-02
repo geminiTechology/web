@@ -1,11 +1,13 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getCourseById } from '../data/courses';
 import { useLanguage, useTranslation } from '../contexts/LanguageContext';
+import { translateDuration } from '../utils/duration';
 import './CourseDetail.css';
 
 export default function CourseDetail() {
   const { language } = useLanguage();
   const t = useTranslation();
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const course = id ? getCourseById(id) : undefined;
 
@@ -29,6 +31,27 @@ export default function CourseDetail() {
   const category = language === 'sk' && course.categorySk ? course.categorySk : course.category;
   const topics = language === 'sk' && course.topicsSk ? course.topicsSk : course.topics;
 
+  // Translate level
+  const levelTranslationKey = course.level.toLowerCase() as 'beginner' | 'intermediate' | 'advanced';
+  const translatedLevel = t(`levels.${levelTranslationKey}`);
+  
+  // Translate duration
+  const translatedDuration = translateDuration(course.duration, language, t);
+  
+  const handleEnroll = () => {
+    navigate('/contact', { state: { courseId: course.id, courseTitle: title } });
+  };
+
+  // Convert markdown-like formatting to HTML
+  const formatDescription = (text: string) => {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/━━━+/g, '<hr class="course-section-divider" />')
+      .replace(/^\s*[-•]\s/gm, '<span class="course-bullet">•</span>')
+      .replace(/^\s*✓\s/gm, '<span class="course-check">✓</span>')
+      .replace(/\n/g, '<br />');
+  };
+
   return (
     <div className="course-detail">
       <div className="course-detail-hero">
@@ -39,7 +62,7 @@ export default function CourseDetail() {
           <div className="course-hero-content">
             <div className="course-badges">
               <span className={`course-level course-level-${course.level.toLowerCase()}`}>
-                {course.level}
+                {translatedLevel}
               </span>
               <span className="course-category">{category}</span>
             </div>
@@ -52,14 +75,14 @@ export default function CourseDetail() {
               </div>
               <div className="meta-item">
                 <span className="meta-label">{t('courseDetail.duration')}</span>
-                <span className="meta-value">{course.duration}</span>
+                <span className="meta-value">{translatedDuration}</span>
               </div>
               <div className="meta-item">
                 <span className="meta-label">{t('courseDetail.price')}</span>
-                <span className="meta-value price">${course.price}</span>
+                <span className="meta-value price">€{course.price}</span>
               </div>
             </div>
-            <button className="btn btn-primary btn-enroll">{t('courseDetail.enrollNow')}</button>
+            <button className="btn btn-primary btn-enroll" onClick={handleEnroll}>{t('courseDetail.enrollNow')}</button>
           </div>
         </div>
       </div>
@@ -69,7 +92,10 @@ export default function CourseDetail() {
           <div className="course-main">
             <section className="course-section">
               <h2>{t('courseDetail.aboutCourse')}</h2>
-              <div style={{ whiteSpace: 'pre-line' }}>{longDescription}</div>
+              <div 
+                className="course-description-formatted"
+                dangerouslySetInnerHTML={{ __html: formatDescription(longDescription) }}
+              />
             </section>
 
             <section className="course-section">
@@ -84,17 +110,17 @@ export default function CourseDetail() {
 
           <div className="course-sidebar">
             <div className="course-card-sidebar">
-              <div className="course-price-large">${course.price}</div>
-              <button className="btn btn-primary btn-full-width">{t('courseDetail.enrollNow')}</button>
+              <div className="course-price-large">€{course.price}</div>
+              <button className="btn btn-primary btn-full-width" onClick={handleEnroll}>{t('courseDetail.enrollNow')}</button>
               <div className="course-sidebar-info">
                 <div className="sidebar-info-item">
                   <strong>{t('courseDetail.instructor')}</strong> {course.instructor}
                 </div>
                 <div className="sidebar-info-item">
-                  <strong>{t('courseDetail.duration')}</strong> {course.duration}
+                  <strong>{t('courseDetail.duration')}</strong> {translatedDuration}
                 </div>
                 <div className="sidebar-info-item">
-                  <strong>{t('courseDetail.level')}</strong> {course.level}
+                  <strong>{t('courseDetail.level')}</strong> {translatedLevel}
                 </div>
                 <div className="sidebar-info-item">
                   <strong>{t('courseDetail.category')}</strong> {category}

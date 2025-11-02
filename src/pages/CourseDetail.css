@@ -111,6 +111,43 @@
   margin: 0;
 }
 
+.course-description-formatted {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.course-description-formatted strong {
+  color: #1a1a2e;
+  font-weight: 700;
+  display: block;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+}
+
+.course-description-formatted strong:first-child {
+  margin-top: 0;
+}
+
+.course-section-divider {
+  border: none;
+  border-top: 2px solid #e0e0e0;
+  margin: 2rem 0;
+  background: none;
+}
+
+.course-bullet,
+.course-check {
+  color: #667eea;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.course-description-formatted br {
+  line-height: 1.8;
+}
+
 .topics-list {
   list-style: none;
   padding: 0;

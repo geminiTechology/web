@@ -1,22 +1,33 @@
 import { useState } from 'react';
 import { courses } from '../data/courses';
 import CourseCard from '../components/CourseCard';
-import { useTranslation } from '../contexts/LanguageContext';
+import { useLanguage, useTranslation } from '../contexts/LanguageContext';
 import './Courses.css';
 
 export default function Courses() {
+  const { language } = useLanguage();
   const t = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedLevel, setSelectedLevel] = useState<string>('All');
 
-  const categories = ['All', ...Array.from(new Set(courses.map(c => c.category)))];
-  const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
+  const levelOptions = [
+    { value: 'All', label: language === 'sk' ? 'Všetky' : 'All' },
+    { value: 'Beginner', label: t('levels.beginner') },
+    { value: 'Intermediate', label: t('levels.intermediate') },
+    { value: 'Advanced', label: t('levels.advanced') },
+  ];
 
   const filteredCourses = courses.filter(course => {
-    const categoryMatch = selectedCategory === 'All' || course.category === selectedCategory;
+    const categoryMatch = selectedCategory === 'All' || 
+      (language === 'sk' && course.categorySk ? course.categorySk === selectedCategory : course.category === selectedCategory);
     const levelMatch = selectedLevel === 'All' || course.level === selectedLevel;
     return categoryMatch && levelMatch;
   });
+  
+  // Handle category filtering with language support
+  const categoryOptions = ['All', ...Array.from(new Set(courses.map(c => 
+    language === 'sk' && c.categorySk ? c.categorySk : c.category
+  )))];
 
   return (
     <div className="courses-page">
@@ -36,7 +47,7 @@ export default function Courses() {
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
             >
-              {categories.map(cat => (
+              {categoryOptions.map(cat => (
                 <option key={cat} value={cat}>{cat}</option>
               ))}
             </select>
@@ -49,8 +60,8 @@ export default function Courses() {
               value={selectedLevel}
               onChange={(e) => setSelectedLevel(e.target.value)}
             >
-              {levels.map(level => (
-                <option key={level} value={level}>{level}</option>
+              {levelOptions.map(level => (
+                <option key={level.value} value={level.value}>{level.label}</option>
               ))}
             </select>
           </div>

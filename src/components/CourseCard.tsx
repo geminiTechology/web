@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { Course } from '../types/course';
 import { useLanguage, useTranslation } from '../contexts/LanguageContext';
+import { translateDuration } from '../utils/duration';
 import './CourseCard.css';
 
 interface CourseCardProps {
@@ -16,11 +17,18 @@ export default function CourseCard({ course }: CourseCardProps) {
   const category = language === 'sk' && course.categorySk ? course.categorySk : course.category;
   const topics = language === 'sk' && course.topicsSk ? course.topicsSk : course.topics;
   
+  // Translate level
+  const levelTranslationKey = course.level.toLowerCase() as 'beginner' | 'intermediate' | 'advanced';
+  const translatedLevel = t(`levels.${levelTranslationKey}`);
+  
+  // Translate duration
+  const translatedDuration = translateDuration(course.duration, language, t);
+  
   return (
     <Link to={`/courses/${course.id}`} className="course-card">
       <div className="course-card-header">
         <span className={`course-level course-level-${course.level.toLowerCase()}`}>
-          {course.level}
+          {translatedLevel}
         </span>
         <span className="course-category">{category}</span>
       </div>
@@ -29,7 +37,7 @@ export default function CourseCard({ course }: CourseCardProps) {
         <p className="course-card-description">{description}</p>
         <div className="course-card-meta">
           <span className="course-instructor">👤 {course.instructor}</span>
-          <span className="course-duration">⏱ {course.duration}</span>
+          <span className="course-duration">⏱ {translatedDuration}</span>
         </div>
         <div className="course-card-topics">
           {topics.slice(0, 3).map((topic, idx) => (
@@ -41,7 +49,7 @@ export default function CourseCard({ course }: CourseCardProps) {
         </div>
       </div>
       <div className="course-card-footer">
-        <span className="course-price">${course.price}</span>
+        <span className="course-price">€{course.price}</span>
         <button className="course-card-button">{t('courseDetail.viewDetails')}</button>
       </div>
     </Link>

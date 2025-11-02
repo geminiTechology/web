@@ -51,13 +51,13 @@ export const courses: Course[] = [
   },
   {
     id: '5',
-    title: 'Advanced JavaScript Patterns',
-    description: 'Deep dive into advanced JavaScript concepts and design patterns',
+    title: 'JavaScript Fundamentals',
+    description: 'Deep dive into JavaScript concepts and design patterns',
     longDescription: 'Explore advanced JavaScript features including closures, prototypes, async/await, design patterns, and performance optimization techniques.',
-    instructor: 'James Anderson',
-    duration: '5 weeks',
-    level: 'Advanced',
-    price: 249,
+    instructor: 'Peter Novak',
+    duration: '60 hours',
+    level: 'Beginner',
+    price: 650,
     category: 'Web Development',
     topics: ['Closures', 'Prototypes', 'Async/Await', 'Design Patterns', 'Performance']
   },
@@ -79,74 +79,114 @@ export const courses: Course[] = [
     titleSk: 'MS Excel, Word, Internet a Windows základy',
     description: 'Master essential computer skills including MS Office applications, internet browsing, email, and Windows operating system',
     descriptionSk: 'Ovládnite základné počítačové zručnosti vrátane aplikácií MS Office, prehliadania internetu, emailu a operačného systému Windows',
-    longDescription: `A comprehensive beginner course covering essential computer skills for everyday work:
+    longDescription: `🎯 **Transform Your Digital Skills - Master Essential Office Tools**
 
-MS Excel:
-• Zoom in/out and display settings, toolbars
-• Data entry: numbers, dates, text
-• Sorting data by criteria
-• Find and replace functionality
-• Selecting cells, ranges, entire worksheets
-• Working with rows and columns
-• Copy, move, delete content within and between worksheets/workbooks
-• Auto-fill and data series
-• Number, date, currency, percentage formatting
-• Cell formatting: font size, font types
-• Copy formatting with Format Painter
-• Text wrapping and cell alignment
-• Formulas with cell references and arithmetic operators
-• Functions: SUM, AVERAGE, MIN, MAX, COUNT
-• Nested functions
-• Sorting and filtering
-• Conditional formatting
-• SUBTOTAL, SUMIF, COUNTIF, VLOOKUP functions
-• Logical functions: IF, AND, OR
-• Creating and modifying charts and graphs
-• Pivot tables
-• Page setup: margins, page size, orientation
-• Headers and footers: page numbers, date, time, filename
-• Print preview
+A comprehensive beginner-friendly course designed to equip you with essential computer skills for professional success. Learn everything you need to work efficiently with modern office software and digital tools.
 
-MS Word:
-• Saving documents
-• Using MS Word templates
-• Document creation best practices
-• Text input and keyboard layout
-• Working with non-printing characters
-• Text formatting
-• Spell checking
-• Headers and footers
-• Working with bullet points
-• Inserting images, shapes, diagrams, special characters
-• Working with text boxes
-• Working with tables
-• Mail merge
-• Document layout settings
-• Print settings
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Internet:
-• Web searching (Google)
-• Working with multiple browser tabs
-• Bookmarks and favorites
-• Saving images
-• Copying images, text, and links
+📊 **MS EXCEL - Data Management & Analysis**
 
-Email:
-• Replying to emails
-• Sending new messages
-• Forwarding messages
-• Attaching files (images, documents)
-• Sending web links
+**📐 Worksheet Fundamentals**
+• Navigate and customize your workspace (zoom, toolbars, display settings)
+• Master cell selection techniques (single, ranges, non-contiguous areas, entire worksheets)
+• Efficiently work with rows, columns, and multiple worksheets
 
-OS Windows:
-• Using File Explorer (This PC)
-• Different folder views
-• Creating folders and subfolders
-• Saving files (images, documents)
-• Copy, move, and delete files
-• Connecting PC and mobile device
+**✍️ Data Entry & Formatting**
+• Input different data types: numbers, dates, text
+• Apply professional formatting (currency, percentages, decimals, date formats)
+• Enhance visual appeal with font styles, sizes, and cell appearance
+• Use Format Painter for consistent styling
+• Text wrapping and cell alignment for polished presentations
 
-Perfect for beginners or anyone looking to strengthen their foundational computer and office productivity skills.`,
+**🔧 Data Manipulation**
+• Sort and filter data by multiple criteria
+• Find and replace content efficiently
+• Copy, move, and delete data across worksheets and workbooks
+• Auto-fill and create data series automatically
+
+**⚡ Formulas & Functions**
+• Create formulas using cell references and arithmetic operators (+, -, *, /)
+• Master essential functions: SUM, AVERAGE, MIN, MAX, COUNT
+• Advanced functions: SUBTOTAL, SUMIF, COUNTIF, VLOOKUP
+• Logical functions: IF, AND, OR for complex decision-making
+• Build nested functions for powerful calculations
+
+**📈 Data Visualization**
+• Create professional charts and graphs from your data
+• Design pivot tables for dynamic data analysis
+• Apply conditional formatting to highlight important information
+
+**🖨️ Professional Presentation**
+• Configure page setup (margins, size, orientation)
+• Add headers and footers with dynamic fields (page numbers, dates, filenames)
+• Preview and print your workbooks professionally
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 **MS WORD - Document Creation & Design**
+
+**📄 Document Management**
+• Save and organize documents efficiently
+• Leverage professional templates for faster work
+• Follow best practices for document creation
+
+**✍️ Content Creation**
+• Master keyboard layout and text input
+• Work with non-printing characters for precise editing
+• Apply professional text formatting
+• Use spell checking and grammar tools
+
+**🎨 Advanced Formatting**
+• Create headers and footers
+• Work with bullet points and numbering
+• Insert visual elements: images, shapes, diagrams, special characters
+• Design layouts with text boxes
+• Build professional tables
+
+**📧 Productivity Features**
+• Master mail merge for bulk document creation
+• Configure document layout settings
+• Prepare documents for printing
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 **INTERNET & EMAIL - Digital Communication**
+
+**🔍 Web Navigation**
+• Efficient web searching with Google
+• Manage multiple browser tabs
+• Organize bookmarks and favorites
+• Save and copy web content (images, text, links)
+
+**📧 Email Mastery**
+• Reply to emails professionally
+• Compose and send new messages
+• Forward communications effectively
+• Attach files (images, documents)
+• Share web links and resources
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💻 **OS WINDOWS - File Management**
+
+• Navigate using File Explorer (This PC)
+• Switch between different folder views
+• Create and organize folders and subfolders
+• Save files (images, documents) efficiently
+• Copy, move, and delete files with confidence
+• Connect and sync PC with mobile devices
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ **Perfect For:**
+• Complete beginners starting their digital journey
+• Professionals looking to strengthen foundational skills
+• Anyone seeking to improve office productivity
+• Career changers entering modern workplaces
+
+🎓 **What You'll Achieve:**
+By the end of this course, you'll confidently handle everyday office tasks, create professional documents, analyze data effectively, and navigate the digital workspace with ease.`,
     longDescriptionSk: `Komplexný začiatočnícky kurz pokrývajúci základné počítačové zručnosti pre každodennú prácu:
 
 MS Excel:
@@ -219,9 +259,9 @@ OS Windows:
 
 Ideálne pre začiatočníkov alebo pre tých, ktorí si chcú posilniť základné počítačové a kancelárske zručnosti.`,
     instructor: 'Peter Novák',
-    duration: '8 weeks',
+    duration: '40 hours',
     level: 'Beginner',
-    price: 199,
+    price: 600,
     category: 'Office & Basics',
     categorySk: 'Kancelárske programy & základy',
     topics: [

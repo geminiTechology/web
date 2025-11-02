@@ -52,6 +52,11 @@ export const translations = {
   courseCard: {
     more: 'viac',
   },
+  levels: {
+    beginner: 'Začiatočník',
+    intermediate: 'Pokročilý',
+    advanced: 'Expert',
+  },
   about: {
     title: 'O Gemini IT Kurzoch',
     subtitle: 'Posilňovanie profesionálov prostredníctvom najmodernejšieho technologického vzdelávania',
@@ -100,7 +105,9 @@ export const translations = {
     technicalSupport: 'Technická podpora',
     other: 'Iné',
     sendMessageButton: 'Odoslať správu',
+    sending: 'Odosielanie...',
     thankYou: 'Ďakujeme za vašu správu! Čoskoro sa vám ozveme.',
+    errorMessage: 'Nepodarilo sa odoslať správu. Skúste to znova alebo nás kontaktujte priamo na info@geminicourses.com',
   },
   footer: {
     tagline: 'Posilňovanie profesionálov pomocou najmodernejších IT zručností a vedomostí.',
@@ -111,6 +118,7 @@ export const translations = {
   },
   common: {
     weeks: 'týždňov',
+    hours: 'hodiny',
   },
 };
 

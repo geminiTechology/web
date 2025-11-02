@@ -52,6 +52,11 @@ export const translations = {
   courseCard: {
     more: 'more',
   },
+  levels: {
+    beginner: 'Beginner',
+    intermediate: 'Intermediate',
+    advanced: 'Advanced',
+  },
   about: {
     title: 'About Gemini IT Courses',
     subtitle: 'Empowering professionals through cutting-edge technology education',
@@ -100,7 +105,9 @@ export const translations = {
     technicalSupport: 'Technical Support',
     other: 'Other',
     sendMessageButton: 'Send Message',
+    sending: 'Sending...',
     thankYou: 'Thank you for your message! We will get back to you soon.',
+    errorMessage: 'Failed to send message. Please try again or contact us directly at info@geminicourses.com',
   },
   footer: {
     tagline: 'Empowering professionals with cutting-edge IT skills and knowledge.',
@@ -111,6 +118,7 @@ export const translations = {
   },
   common: {
     weeks: 'weeks',
+    hours: 'hours',
   },
 };
 
